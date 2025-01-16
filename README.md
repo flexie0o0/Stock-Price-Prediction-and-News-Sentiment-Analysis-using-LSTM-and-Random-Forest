@@ -34,9 +34,9 @@ analyze stock trends based on both price history and news sentiment.
 </ul>
 
 <h3>
-  <hr>
   Installation:
 </h3>
+  <hr>
 <ol>
   <li>
     <strong>Clone the repository:</strong>
