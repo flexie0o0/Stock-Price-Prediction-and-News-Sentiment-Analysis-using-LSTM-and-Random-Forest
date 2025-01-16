@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        /* Gradient background */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #d9e4f5, #6e8ebf);
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Alert message styling */
+        .alert {
+            background-color: #f8f9fa; /* Off-white color */
+            color: #333;
+            border: 1px solid #d1d1d1;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            margin-bottom: 10px;
+            text-align: center;
+            position: relative;
+            top: -20px;
+        }
+
+        .alert button {
+            background: none;
+            border: none;
+            color: #1a3d7c;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Main container styling */
+        .main-container {
+            background-color: #f8f9fa; /* Off-white color */
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px; /* Adjusted to provide spacing for the alert */
+        }
+
+        h1 {
+            color: #1a3d7c;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h3, h4 {
+            color: #333;
+        }
+
+        /* Button styling */
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1a3d7c;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3e79d3;
+        }
+
+        button a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .alert, .main-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    <div class="main-container">
+        <h1>Welcome to Predict My Stock!</h1>
+
+        {% if user.is_authenticated %}
+        <h3>Hello {{fname}}!</h3>
+        <h4>You are successfully logged in!</h4>
+        <button type="submit"><a href="{% url 'main' %}">Explore the Stock Market World </a></button>
+        <button type="submit"><a href="/signout">SignOut</a></button>
+        {% else %}
+        <button type="submit"><a href="/signup">SignUp</a></button>
+        <button type="submit"><a href="/signin">SignIn</a></button>
+        {% endif %}
+    </div>
+
+</body>
+</html>

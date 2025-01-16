@@ -1,0 +1,44 @@
+import streamlit as st
+import pandas as pd
+
+# Load the data
+df = pd.read_csv("F:\pythonenaa\web-scrapping-sharesansar\sentiment-nepali-news.csv")
+
+# Set the Streamlit app title
+st.title("News Sentiment Dashboard")
+
+# Search filters
+st.sidebar.header("Search Filters")
+search_date = st.sidebar.text_input("Search by Date (e.g., January 14, 2024)")
+search_title = st.sidebar.text_input("Search by Title")
+search_source = st.sidebar.text_input("Search by Source")
+search_sentiment = st.sidebar.selectbox("Search by Sentiment", ["", "positive", "negative", "neutral"])
+
+# Filter the dataframe based on search inputs
+filtered_df = df.copy()
+
+if search_date:
+    filtered_df = filtered_df[filtered_df['datetime'].str.contains(search_date, case=False, na=False)]
+
+if search_title:
+    filtered_df = filtered_df[filtered_df['title'].str.contains(search_title, case=False, na=False)]
+
+if search_source:
+    filtered_df = filtered_df[filtered_df['source'].str.contains(search_source, case=False, na=False)]
+
+if search_sentiment:
+    filtered_df = filtered_df[filtered_df['top_sentiment'] == search_sentiment]
+
+# Display filtered results
+if not filtered_df.empty:
+    for _, row in filtered_df.iterrows():
+        st.subheader(row['title'])
+        st.write(f"**Source:** {row['source']}")
+        st.write(f"**Posted Date:** {row['datetime']}")
+        st.write(f"**Sentiment:** {row['top_sentiment'].capitalize()}")
+        
+        # Make the link clickable
+        st.markdown(f"[Read More]({row['link']})", unsafe_allow_html=True)
+        st.write("---")
+else:
+    st.write("No results found. Please adjust your search filters.")
