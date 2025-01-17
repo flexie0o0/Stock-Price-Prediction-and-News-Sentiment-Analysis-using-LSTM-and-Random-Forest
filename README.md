@@ -43,35 +43,35 @@ analyze stock trends based on both price history and news sentiment.
     <pre><code>git clone git@github.com:flexie0o0/Stock-Price-Prediction-and-News-Sentiment-Analysis-using-LSTM-and-Random-Forest.git </code></pre>
   </li>
   <li>
-    <strong> Install virtual environment: </strong>strong>
+    <strong> Install virtual environment: </strong>
     <pre> pip install virtualenv </pre>
   </li>
     <li>
-    <strong> Create a virtual environment: </strong>strong>
+    <strong> Create a virtual environment: </strong>
     <pre> virtualenv venv </pre>
   </li>
     <li>
-    <strong> Activate the virtual environment: </strong>strong>
+    <strong> Activate the virtual environment: </strong>
     <pre> venv\Scripts\activate </pre>
   </li>
     <li>
-    <strong> Install django: </strong>strong>
+    <strong> Install django: </strong>
     <pre> pip install django </pre>
   </li>
     <li>
-    <strong> Create a django project: </strong>strong>
+    <strong> Create a django project: </strong>
     <pre> django-admin startproject project_name </pre>
   </li>
     <li>
-    <strong> Create a django app: </strong>strong>
+    <strong> Create a django app: </strong>
     <pre> python manage.py startapp app_name </pre>
   </li>
       <li>
-    <strong> Create a superuser: </strong>strong>
+    <strong> Create a superuser: </strong>
     <pre> python manage.py createsuperuser </pre>
   </li>
       <li>
-    <strong> Create a django app: </strong>strong>
+    <strong> Create a django app: </strong>
     <pre> python manage.py startapp app_name </pre>
   </li>
 </ol>
