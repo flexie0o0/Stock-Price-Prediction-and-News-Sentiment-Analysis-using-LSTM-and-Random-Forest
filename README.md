@@ -40,7 +40,7 @@ analyze stock trends based on both price history and news sentiment.
 <ol>
   <li>
     <strong>Clone the repository:</strong>
-    <pre><code>git clone  </code></pre>
+    <pre><code>git clone git@github.com:flexie0o0/Stock-Price-Prediction-and-News-Sentiment-Analysis-using-LSTM-and-Random-Forest.git </code></pre>
   </li>
   <li>
     <strong> Install virtual environment: </strong>strong>
